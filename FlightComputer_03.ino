@@ -47,6 +47,7 @@ const uint8_t btn_C = A1;
 const uint8_t btn_R = A2;
 const uint8_t btn_D = A3;
 const uint8_t btn_U = A4;
+const uint8_t LCD_light = 2;
 
 uint8_t	key_counter = 0;
 
@@ -80,7 +81,10 @@ void setup() {
 	pinMode(btn_D, INPUT);
 	pinMode(btn_U, INPUT);
 
+	pinMode(buzzerPin, OUTPUT);
+	pinMode(LCD_light, OUTPUT);
 
+	digitalWrite(LCD_light, HIGH);	//Turn LCD Backlight OFF
 
 
 }
@@ -236,7 +240,7 @@ void PlayConfirm() {
 
 void PlayPush() {
 	tone(buzzerPin, 3000, 15);
-	digitalWrite(buzzerPin, HIGH);
+	digitalWrite(buzzerPin, LOW);
 }
 
 void PlayConfiguration() {
